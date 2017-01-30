@@ -21,7 +21,6 @@ class test extends Controller
             echo $e->getMessage();
         }
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -67,7 +66,6 @@ class test extends Controller
         }
         
     }
-
     /**
      * Display the specified resource.
      *
@@ -87,7 +85,6 @@ class test extends Controller
             echo $e->getMessage();
         }    //
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -103,8 +100,6 @@ class test extends Controller
             echo $e->getMessage();    
         }
     }
-
-
     /**
      * Update the specified resource in storage.
      *
@@ -151,13 +146,7 @@ class test extends Controller
             echo $e->getMessage();
         }
     }
-    /**
-    }
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function delete($id)
     {   
         try {
