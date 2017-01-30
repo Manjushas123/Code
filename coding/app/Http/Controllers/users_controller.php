@@ -10,7 +10,7 @@ use DB;
 use App\Quotation;
 use App\Practice;
 
-class test extends Controller
+class users_controller extends Controller
 {
     public function create()
     {
