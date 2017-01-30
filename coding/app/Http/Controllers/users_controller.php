@@ -12,6 +12,21 @@ use App\Practice;
 
 class users_controller extends Controller
 {
+    public function validation(Request $request)
+    {
+        $validate = $this->validate($request, [
+                                  'name'=>'required|min:2|max:40|alpha',
+                                  'email'=>'required|min:11|max:255|email',
+                                  'password'=>'required',  
+                                  'mobile'=>'required|min:10|max:15',                              
+                                  'gender'=>'required',
+                                  'interests'=>'required',
+                                  'city'=>'required',
+                                  'location_priority'=>'required'],
+                                 ['name.min'=>'name must be atleast 2 character',
+                                  'name.max'=>'name must not exceed 40 chars']);  
+    }
+
     public function create()
     {
         try {
@@ -29,17 +44,7 @@ class users_controller extends Controller
      */
     public function store(Request $request)
     {  
-        $this->validate($request, [
-                                  'name'=>'required|min:2|max:40|alpha',
-                                  'email'=>'required|min:11|max:255|email',
-                                  'password'=>'required',
-                                  'mobile'=>'required|min:10|max:15',
-                                  'gender'=>'required',
-                                  'interests'=>'required',
-                                  'city'=>'required',
-                                  'location_priority'=>'required'],
-                                 ['name.min'=>'name must be atleast 2 character',
-                                  'name.max'=>'name must not exceed 40 chars']);
+        $validate = $this->validation($request);
         $interestsAsString = '';
         foreach($request->interests as $interests) {
             $interestsAsString .= $interests . ",";
@@ -109,18 +114,7 @@ class users_controller extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-                                  'name'=>'required|min:2|max:40|alpha',
-                                  'email'=>'required|min:11|max:255|email',
-                                  'password'=>'required',  
-                                  'mobile'=>'required|min:10|max:15',                              
-                                  'gender'=>'required',
-                                  'interests'=>'required',
-                                  'city'=>'required',
-                                  'location_priority'=>'required'],
-                                 ['name.min'=>'name must be atleast 2 character',
-                                  'name.max'=>'name must not exceed 40 chars']);
-
+        $validate = $this->validation($request);
         try {            
             $interestsAsString = '';
             foreach($request->interests as $interests) {
