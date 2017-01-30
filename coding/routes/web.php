@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', "test@show");
+Route::get('/', "users_controller@show");
 /*Route::get('users',function() {
 	$users = [
 	'first_name'=> 'Manjusha',
@@ -19,18 +19,12 @@ Route::get('/', "test@show");
 	 'company'=>'compassites'];
 	return $users;
 });*/
-Route::get("show","test@show");
-Route::get("index","test@index");
-Route::post("store","test@store");
-//Route::get("/","test@show");
-Route::get('/delete/{id}','test@delete');
-Route::get('/edit/{id}','test@edit');
-Route::post('/update/{id}','test@update');
-
+Route::get("show","users_controller@show");
+Route::get("create","users_controller@create");
+Route::post("store","users_controller@store");
+Route::get('/delete/{id}','users_controller@delete');
+Route::get('/edit/{id}','users_controller@edit');
+Route::post('/update/{id}','users_controller@update');
 Auth::routes();
-
 Route::get('/home', 'HomeController@index');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index');

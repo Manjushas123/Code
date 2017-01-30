@@ -12,30 +12,14 @@ use App\Practice;
 
 class test extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {  
+    public function create()
+    {
         try {
             return view("welcome");
         //return view("test@store")
         } catch (\Exception  $e) {
-        //{{
             echo $e->getMessage();
         }
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -93,8 +77,8 @@ class test extends Controller
     public function show()
     {  
         try {
-            $data['data'] =DB::table('laravels')->get();
-            if (count($data)>0) {
+            $data['data'] = DB::table('laravels')->get();
+            if (count($data) > 0) {
                 return view('admin.users.view',$data);
             } else {
                 return view("welcome");   
@@ -148,7 +132,6 @@ class test extends Controller
                 $interestsAsString .= $interests . ",";
             }    
             $location_priority = '';
-
             foreach($request->location_priority as $locPrio) {
             $location_priority .= $locPrio . ",";
             }
