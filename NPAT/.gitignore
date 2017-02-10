@@ -1,0 +1,9 @@
+/vendor
+/node_modules
+Homestead.yaml
+.env
+/nbproject/
+composer.lock
+.idea/
+/_ide_helper.php
+nbproject/project.properties
