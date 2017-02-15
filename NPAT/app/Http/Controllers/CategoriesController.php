@@ -45,7 +45,6 @@ class CategoriesController extends Controller
             ->with('getRoleDetails', $getRoleDetails)
             ->with('getRoleName', $getRoleName);
     }
-
     /**
      * Show the form for creating a new people.
      *
@@ -74,10 +73,8 @@ class CategoriesController extends Controller
         } catch (Exception $e) {
             return json_encode(array('success' => false, 'message' => 'Something went wrong, please try again later.'));
         }
-
         return json_encode(array('success' => true, 'message' => 'Category successfully Saved!'));
     }
-
     /**
      * Display the specified people.
      *
@@ -119,7 +116,6 @@ class CategoriesController extends Controller
         } catch (Exception $e) {
             return json_encode(array('success' => false, 'message' => 'Something went wrong, please try again later.'));
         }
-
         return json_encode(array('success' => true, 'message' => 'Category successfully Saved!'));
     }
 

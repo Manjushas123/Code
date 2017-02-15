@@ -13,7 +13,6 @@ use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
-
     protected $feedbackRepository;
     protected $userRepository;
     protected $utilityRepository;
@@ -66,7 +65,7 @@ class PagesController extends Controller
     {
         $this->feedbackRepository->updateProjectPerformanceFeedback($peopleFeedbackId);
         Session::flash('success', 'Feedback Updated successfully.');
-        if(Session::get('role') == config('custom.practiceLeadId')){
+        if (Session::get('role') == config('custom.practiceLeadId')) {
             return redirect()->route('adminReport');
         }
         return redirect()->route('report');
@@ -86,12 +85,10 @@ class PagesController extends Controller
             'resourceName' => 'required',
             'practiceName' => 'required'
         ]);      
-
         $userDetails = $this->userRepository->getRolesNameId();
         $userPracticeLeadFeedback = $this->feedbackRepository->getResourceSave($userDetails);
         $start_month = $this->utilityRepository->getStringMonthFromDate(\Input::get('start'));
         $end_month = $this->utilityRepository->getStringMonthFromDate(\Input::get('end'));
-
         if ($userPracticeLeadFeedback) {
             Session::flash('success', 'Feedback Data Saved successfully for quarter '.$start_month.' - '.$end_month);
             return redirect()->route('plfeedback.form');

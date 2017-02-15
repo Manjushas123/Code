@@ -22,7 +22,6 @@ class NavigatorDesignationController extends Controller
     protected $validationRepository;
     protected $userRepository;
 
-
     public function __construct(
 
         NavigatorDesignationRepository $navigatorDesignationRepository,
@@ -30,7 +29,6 @@ class NavigatorDesignationController extends Controller
     )
     {
         parent::__construct();
-
         $this->navigatorDesignationRepository = $navigatorDesignationRepository;
         $this->userRepository = $userRepository;
     }
