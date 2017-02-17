@@ -106,7 +106,6 @@ class ReportController extends Controller
             ->with('peopleName', $peopleName)->with('fromDate', $fromDate)
             ->with('toDate', $toDate)->with('user', $user);
     }
-
     /**
      * Edit the rating details.
      *
@@ -143,7 +142,6 @@ class ReportController extends Controller
             ->with('getRoleDetails', $getRoleDetails)
             ->with('quarterYear', $quarterYear);
           }
-
     /**
      * Get Resource Rating Details for Resource
      * @return mixed
@@ -170,10 +168,7 @@ class ReportController extends Controller
                 ->with('enddate', $enddate);
         }
         return response()->json(['result' => false, 'msg' => 'Required Data is Not Available'], 422);
-
-
     }
-
     /**
      * Get People Dashboard
      * @return mixed
@@ -192,7 +187,6 @@ class ReportController extends Controller
             ->with('getRoleDetails', $getRoleDetails)
             ->with('getRoleName', $getRoleName);
     }
-
     /**
      * Get Report Summary Dashboard
      * @return $this
@@ -303,10 +297,8 @@ class ReportController extends Controller
      */
     public function getCategorySortValue()
     {
-
         $categoryId = Input::get('categoryId');
         return $this->reportRepo->getSortValueFromCategoryValue($categoryId);
-
     }
     public function updateResourceStatus()
     {
